@@ -12,3 +12,8 @@
     .animate-fade-in {
     animation: fade-in 1s ease-out forwards; /* Duración de 1 segundo */
     }
+
+    .feature_selected{
+        border-radius: 16px;
+        opacity: 1;
+    }

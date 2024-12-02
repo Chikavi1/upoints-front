@@ -1,19 +1,23 @@
 
 <div class="p-6">
     <h1 class="text-3xl font-bold">Bienvenidos de nuevo</h1>
-    <p class="text-xl">
+    <p class="text-xl">s
         Lunes 25 de marzo
     </p>
 
     <h3 class="mt-10 text-3xl font-bold">Accesos Rápidos</h3>
 
-    <div>
-        <h2>Escanea tu código QR</h2>
-    
-        <!-- Video donde se mostrará la cámara -->
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+         <div class="px-6 py-4">
+            <div class="font-bold text-xl mb-2">Escanea tu código QR</div>
+            <p class="text-gray-700 text-base">
+                
+            </p>
+        </div>
+    </div>
+
+    <div class="mt-4 p-10">
         <video #videoElement width="100%" height="auto" autoplay muted></video>
-    
-        <!-- Mostrar el resultado si se encuentra un código -->
         <p *ngIf="result">Resultado: {{ result }}</p>
     </div>
     
