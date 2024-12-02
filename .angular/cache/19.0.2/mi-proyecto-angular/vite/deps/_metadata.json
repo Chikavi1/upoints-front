@@ -1,49 +1,55 @@
 {
-  "hash": "d136dc77",
-  "configHash": "5b991fd9",
-  "lockfileHash": "5b3e9620",
-  "browserHash": "8f559e47",
+  "hash": "103b823d",
+  "configHash": "d8bad247",
+  "lockfileHash": "4f50ff48",
+  "browserHash": "16fea224",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "178ec15e",
+      "fileHash": "340dff40",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "1c870dd4",
+      "fileHash": "108e092a",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "be768da4",
+      "fileHash": "dd510602",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "bb0e82d8",
+      "fileHash": "4985b7f7",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "cf8a8f6e",
+      "fileHash": "1f9e0976",
       "needsInterop": false
     },
     "flowbite": {
       "src": "../../../../../../node_modules/flowbite/lib/esm/index.js",
       "file": "flowbite.js",
-      "fileHash": "cc6890a4",
+      "fileHash": "daf51f9e",
       "needsInterop": false
     },
     "ng2-charts": {
       "src": "../../../../../../node_modules/ng2-charts/fesm2022/ng2-charts.mjs",
       "file": "ng2-charts.js",
-      "fileHash": "09529ea4",
+      "fileHash": "66e9b440",
+      "needsInterop": false
+    },
+    "@zxing/browser": {
+      "src": "../../../../../../node_modules/@zxing/browser/esm/index.js",
+      "file": "@zxing_browser.js",
+      "fileHash": "d34848ae",
       "needsInterop": false
     }
   },
