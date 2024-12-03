@@ -1,5 +1,19 @@
+<button
+        class="fixed top-4 right-4 z-50 md:hidden bg-gray-800 text-white p-2 rounded-full focus:outline-none"
+        (click)="toggleMenu()"
+    >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+    </button>
+    <!-- hidden md:block md:w-64 bg-gray-800 text-white  h-screen -->
+
 <div class="flex h-screen" >
-    <aside class="hidden md:block md:w-64 bg-gray-800 text-white  h-screen">
+    <aside [class.hidden]="!isMenuOpen" 
+
+    class="fixed md:static z-40 md:block md:w-64 w-5/6 bg-gray-800 text-white h-full transition-transform md:translate-x-0" 
+    [ngClass]="{'translate-x-0': isMenuOpen, '-translate-x-full': !isMenuOpen}"  
+    >
         <div class="flex h-screen flex-col justify-between border-e bg-white">
             <div class="px-4 py-6">
                 <span class="grid h-10 w-32 place-content-center rounded-lg font-bold text-xs text-gray-600">

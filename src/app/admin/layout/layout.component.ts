@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, HostListener } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
   imports: [ 
+    CommonModule,
   RouterModule
   ],
    schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -12,6 +14,12 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class LayoutComponent {
 
+  isMenuOpen: boolean = false;
+
+    toggleMenu() {
+        this.isMenuOpen = !this.isMenuOpen;
+    }
+  
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (event.altKey && event.key === 'c') {
