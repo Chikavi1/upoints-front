@@ -15,6 +15,7 @@ import { Router, RouterModule } from '@angular/router';
 export class LayoutComponent {
 
   isMenuOpen: boolean = false;
+  screenLarge = false;
 
     toggleMenu() {
         this.isMenuOpen = !this.isMenuOpen;
@@ -29,17 +30,34 @@ export class LayoutComponent {
   }
 
   constructor(private router:Router) {
-    
+    this.updateScreenSize();
+  }
+
+
+  closeMenu() {
+    if (!this.screenLarge) {
+      this.isMenuOpen = false;
+    }
   }
 
   saveAction() {
     console.log('Acción de guardar ejecutada');
-    // Implementa tu lógica aquí
   }
 
 
   logout() {
     this.router.navigate(['/']);
+  }
 
+  @HostListener('window:resize', [])
+  onResize() {
+    this.updateScreenSize();
+  }
+
+  updateScreenSize() {
+    this.screenLarge = window.innerWidth >= 768;
+    if (this.screenLarge) {
+      this.isMenuOpen = true; // Mantén abierto el menú en pantallas grandes
+    }
   }
 }

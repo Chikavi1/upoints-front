@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { BrowserQRCodeReader, IScannerControls } from '@zxing/browser';
 
 
@@ -14,7 +14,7 @@ export class DashboardComponent {
   result: string | undefined;
   private scannerControls: IScannerControls | undefined;
 
-  async ngOnInit() {
+  async scanQRCode() {
     try {
       const videoInputDevices = await BrowserQRCodeReader.listVideoInputDevices();
 
@@ -58,4 +58,5 @@ export class DashboardComponent {
     // Detener el escáner al destruir el componente
     this.stopCamera();
   }
+ 
 }

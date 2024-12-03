@@ -20,15 +20,15 @@
                     UPoints
                 </span>
     
-                <ul class="mt-6 space-y-1">
+                <ul class="mt-6 space-y-1" >
                     <li>
-                        <a routerLink="/admin/business" class="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700">
+                        <a routerLink="/admin/business" (click)="closeMenu()" class="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700">
                             Inicio
                         </a>
                     </li>
 
                     <li>
-                        <a routerLink="/admin/business/visits"
+                        <a routerLink="/admin/business/visits" (click)="closeMenu()"
                             class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                             Visitas
                         </a>
@@ -52,14 +52,14 @@
     
                             <ul class="mt-2 space-y-1 px-4">
                                 <li>
-                                    <a routerLink="/admin/business/clients"
+                                    <a routerLink="/admin/business/clients" (click)="closeMenu()"
                                         class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                         Listado de clientes
                                     </a>
                                 </li>
     
                                 <li>
-                                    <a routerLink="/admin/business/clients-stats"
+                                    <a routerLink="/admin/business/clients-stats" (click)="closeMenu()"
                                         class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                         Estadisticas
                                     </a>
@@ -69,14 +69,14 @@
                     </li>
     
                     <li>
-                        <a routerLink="/admin/business/gift-cards"
+                        <a routerLink="/admin/business/gift-cards" (click)="closeMenu()"
                             class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                             Tarjetas de regalo
                         </a>
                     </li>
 
                     <li>
-                        <a routerLink="/admin/business/billing"
+                        <a routerLink="/admin/business/billing" (click)="closeMenu()"
                             class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                             Facturación
                         </a>
@@ -101,14 +101,14 @@
     
                             <ul class="mt-2 space-y-1 px-4">
                                 <li>
-                                    <a routerLink="/admin/business/profile"
+                                    <a routerLink="/admin/business/profile" (click)="closeMenu()"
                                         class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                         Ver cuenta
                                     </a>
                                 </li>
     
                                 <li>
-                                    <a routerLink="/admin/business/1/edit"
+                                    <a routerLink="/admin/business/1/edit" (click)="closeMenu()"
                                         class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                         Editar cuenta
                                     </a>
@@ -120,7 +120,7 @@
                     </li>
 
                     <li>
-                        <a routerLink="/admin/business/configuration"
+                        <a routerLink="/admin/business/configuration" (click)="closeMenu()"
                             class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                             Configuración
                         </a>
@@ -155,7 +155,7 @@
         </nav>
     </aside> -->
 
-    <main class="flex-1 bg-gray-100  overflow-auto">
+    <main class="flex-1 bg-gray-100  overflow-auto" (click)="closeMenu()">
         <router-outlet></router-outlet>
     </main>
 
