@@ -1,11 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { BrowserQRCodeReader, IScannerControls } from '@zxing/browser';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
 
+
+registerLocaleData(localeEs, 'es');
 
 @Component({
   selector: 'app-dashboard',
   imports: [CommonModule],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -13,6 +19,13 @@ export class DashboardComponent {
 @ViewChild('videoElement') videoElement!: ElementRef<HTMLVideoElement>;
   result: string | undefined;
   private scannerControls: IScannerControls | undefined;
+
+  today;
+
+  constructor() { 
+    this.today = new Date();
+  }
+  
 
   async scanQRCode() {
     try {
