@@ -17,11 +17,11 @@ import { BaseChartDirective, provideCharts, withDefaultRegisterables } from 'ng2
 export class ClientStatsComponent {
 
    data = {
-    labels: ['January', 'February', 'March'],
+    labels: ['Lunes', 'Martes', 'Miercoles','Jueves', 'Viernes', 'Sabado', 'Domingo'],
     datasets: [
       {
         label: 'Sales',
-        data: [65, 59, 80],
+        data: [65, 59, 80,82, 98, 125, 102],
         backgroundColor: ['red', 'blue', 'green'],
       },
     ],
