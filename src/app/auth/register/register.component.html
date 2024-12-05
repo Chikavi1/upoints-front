@@ -1,10 +1,3 @@
-<!--
-  Heads up! 👋
-
-  Plugins:
-    - @tailwindcss/forms
--->
-
 <section class="bg-white">
     <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
         <section class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
@@ -23,18 +16,17 @@
                 </a>
 
                 <h2 class="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-                    Welcome to Squid 🦑
+                    Bienvenido a UPoints
                 </h2>
 
                 <p class="mt-4 leading-relaxed text-white/90">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-                    quibusdam aperiam voluptatum.
+                    Convierte tus compras en recompensas: regístrate gratis, acumula puntos, canjea tarjetas de regalo, disfruta descuentos exclusivos y haz que cada compra cuente. ¡Empieza hoy!
                 </p>
             </div>
         </section>
 
-        <main class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
-            <div class="max-w-xl lg:max-w-3xl">
+        <main class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-36 lg:py-2 xl:col-span-6">
+            <div class="max-w-xl ">
                 <div class="relative -mt-16 block lg:hidden">
                     <a class="inline-flex size-16 items-center justify-center rounded-full bg-white text-blue-600 sm:size-20"
                         href="#">
@@ -47,61 +39,79 @@
                     </a>
 
                     <h1 class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                        Welcome to Squid 🦑
+                        Bienvenido a UPoints
                     </h1>
 
                     <p class="mt-4 leading-relaxed text-gray-500">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
-                        quibusdam aperiam voluptatum.
+                        Convierte tus compras en recompensas: regístrate gratis, acumula puntos, canjea tarjetas de regalo, disfruta descuentos exclusivos y haz que cada compra cuente. ¡Empieza hoy!
                     </p>
                 </div>
 
-                <form action="#" class="mt-8 grid grid-cols-6 gap-6">
-                    <div class="col-span-6 sm:col-span-3">
-                        <label for="FirstName" class="block text-sm font-medium text-gray-700">
-                            First Name
+                <form [formGroup]="register" (ngSubmit)="onSubmit()"  action="#" class="mt-8 grid grid-cols-6 gap-6">
+                    <div class="col-span-6">
+                        <label for="name" class="block text-sm font-medium text-gray-700">
+                            Nombre
                         </label>
 
-                        <input type="text" id="FirstName" name="first_name"
+                        <input type="text" id="name" formControlName="name"
                             class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
                     </div>
 
-                    <div class="col-span-6 sm:col-span-3">
-                        <label for="LastName" class="block text-sm font-medium text-gray-700">
-                            Last Name
-                        </label>
+                    <div class="col-span-6  ">
+                        <label for="email" class="block text-sm font-medium text-gray-700"> Correo electrónico  </label>
 
-                        <input type="text" id="LastName" name="last_name"
+                        <input type="email" id="email" formControlName="email"
                             class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
                     </div>
+
+                    <div class="col-span-6  ">
+                        <label for="password" class="block text-sm font-medium text-gray-700">
+                           Contraseña
+                        </label>
+
+                        <input type="password" id="password" formControlName="password"
+                            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                    </div>
+
+                    <div class="col-span-3">
+                        <label for="birthday" class="block text-sm font-medium text-gray-700">
+                            Fecha de nacimiento
+                        </label>
+
+                        <input type="text" id="birthday" formControlName="birthday" type="date"
+                            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                    </div>
+
+                    <div class="col-span-3">
+                        <label for="gender" class="block text-sm font-medium text-gray-700">
+                           Género
+                        </label>
+
+                        <select id="gender" formControlName="gender"
+                            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm py-2">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="otro">Otro</option>
+                        </select>
+
+                        <!-- <input type="text" id="gender" formControlName="gender" -->
+                            <!-- class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" /> -->
+                    </div>
+
 
                     <div class="col-span-6">
-                        <label for="Email" class="block text-sm font-medium text-gray-700"> Email </label>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Celular </label>
 
-                        <input type="email" id="Email" name="email"
+                        <input type="tel" id="phone" formControlName="phone"
                             class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
                     </div>
 
-                    <div class="col-span-6 sm:col-span-3">
-                        <label for="Password" class="block text-sm font-medium text-gray-700"> Password </label>
-
-                        <input type="password" id="Password" name="password"
-                            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
-                    </div>
-
-                    <div class="col-span-6 sm:col-span-3">
-                        <label for="PasswordConfirmation" class="block text-sm font-medium text-gray-700">
-                            Password Confirmation
-                        </label>
-
-                        <input type="password" id="PasswordConfirmation" name="password_confirmation"
-                            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
-                    </div>
+                  
 
                     
                     <div class="col-span-6">
                         <p class="text-sm text-gray-500">
-                        Al crear una cuenta, acepta nuestros 
+                        Al crear una cuenta, aceptas nuestros 
                             <a href="#" class="text-gray-700 underline"> términos y condiciones </a>
                             y
                             <a href="#" class="text-gray-700 underline">nuestra política de privacidad</a>.
@@ -115,7 +125,7 @@
                         </button>
 
                         <p class="mt-4 text-sm text-gray-500 sm:mt-0">
-                           tienes cuenta?
+                           ¿Tienes cuenta?
                             <a href="/login" class="text-gray-700 underline">Inicia sesión</a>.
                         </p>
                     </div>
