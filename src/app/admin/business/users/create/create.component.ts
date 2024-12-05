@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,23 +9,27 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './create.component.html',
 })
 export class CreateComponent {
-  user = {
-    name: '',
-    email: ''
-  };
+ 
+ 
+  @Input() mode: 'create' | 'edit' = 'create'; 
+  @Input() data: any = {};  
+  @Output() modalClose = new EventEmitter<any>(); 
+  @Output() modalSave = new EventEmitter<any>();  
 
-  openModal() {
-    const modal = document.getElementById('userModal');
-    if (modal) modal.classList.remove('hidden');
+  formData: any = {};  
+
+  ngOnInit(){
+    this.formData = { ...this.data };
+    
+    console.log(this.formData);
+    console.log(this.mode);
   }
 
   closeModal() {
-    const modal = document.getElementById('userModal');
-    if (modal) modal.classList.add('hidden');
+    this.modalClose.emit(null);  
   }
 
-  createUser() {
-    console.log('Usuario creado:', this.user);
-    this.closeModal();
+  saveData() {
+    this.modalSave.emit(this.formData);  
   }
 }
