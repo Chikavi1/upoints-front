@@ -25,6 +25,7 @@ import { PaymentFormComponent } from './admin/business/payment-form/payment-form
 
 
 import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { CardsComponent } from './admin/clients/cards/cards.component';
 
 export const routes: Routes = [
   
@@ -48,6 +49,8 @@ export const routes: Routes = [
     { path: 'business/:id/edit', component: EditComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/configuration', component: ConfigurationComponent, canActivate: [RoleGuard], data: { role: 'business' } },
  
+    { path: 'clients/cards', component: CardsComponent, canActivate: [RoleGuard], data: { role: 'business' } }, //cambiar
+
     // { path: 'business/users', component: UsersComponent, canActivate: [RoleGuard], data: { role: 'admin' } }
   ]
 },
