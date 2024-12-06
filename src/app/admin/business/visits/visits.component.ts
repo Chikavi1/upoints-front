@@ -1,14 +1,30 @@
 import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output } from '@angular/core';
-import { CreateComponent } from '../users/create/create.component';
+import { AlertComponent } from '../../../shared/alert/alert.component';
+
 
 @Component({
   selector: 'app-visits',
-  imports: [CommonModule,CreateComponent],
+  imports: [CommonModule, AlertComponent ],
   templateUrl: './visits.component.html',
   styleUrl: './visits.component.scss'
 })
 export class VisitsComponent {
+
+  isModalVisible = false;
+  closeText: string = "Eliminar";
+  doneText: string = "done";
+  alertMessage: string = 'seguro?'
+
+
+  toggleModal() {
+    this.isModalVisible = true;
+  }
+
+  closeModal() {
+    this.isModalVisible = false;
+  }
+
   isModalOpen = false;
   modalMode: 'create' | 'edit' = 'create';
   selectedData: any = {};
