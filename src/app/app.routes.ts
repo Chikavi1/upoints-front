@@ -26,6 +26,7 @@ import { PaymentFormComponent } from './admin/business/payment-form/payment-form
 
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { CardsComponent } from './admin/clients/cards/cards.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 export const routes: Routes = [
   
@@ -65,6 +66,7 @@ export const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'forgot_password', component: ForgotPasswordComponent },
   
 
 
