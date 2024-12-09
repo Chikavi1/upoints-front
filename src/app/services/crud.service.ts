@@ -6,25 +6,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CrudService {
+  private readonly baseUrl = 'http://localhost:3000/';
+
   constructor(private http: HttpClient) {}
 
-  getAll(url: string): Observable<any[]> {
-    return this.http.get<any[]>(url);
+  get(endpoint: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}${endpoint}`);
   }
 
-  getById(url: string, id: number): Observable<any> {
-    return this.http.get<any>(`${url}/${id}`);
+  post(endpoint: string, data: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}${endpoint}`, data);
   }
 
-  create(url: string, data: any): Observable<any> {
-    return this.http.post<any>(url, data);
+  put(endpoint: string, id: number, data: any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}${endpoint}/${id}`, data);
   }
 
-  update(url: string, id: number, data: any): Observable<any> {
-    return this.http.put<any>(`${url}/${id}`, data);
-  }
-
-  delete(url: string, id: number): Observable<any> {
-    return this.http.delete<any>(`${url}/${id}`);
+  delete(endpoint: string, id: number): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}${endpoint}/${id}`);
   }
 }

@@ -1,15 +1,16 @@
 import { Component, createComponent } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CreateComponent } from './create/create.component';
 import { CommonModule } from '@angular/common';
 import { User } from '../../../interfaces/User.interface';
+import { CrudService } from '../../../services/crud.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-users',
   standalone: true,
   imports: [
-    CommonModule,
-    FormsModule, CreateComponent],
+    CommonModule,FormsModule, HttpClientModule],
+  providers: [CrudService],
   templateUrl: './users.component.html',
 })
 export class UsersComponent {
@@ -31,6 +32,20 @@ export class UsersComponent {
       }
   ];
 
+  constructor(private api: CrudService){
+    this.getUsers();
+  }
+
+  getUsers() {
+    console.log('users');
+
+    this.api.get('users').subscribe((data: any) => {
+      console.log(data);
+      this.users = data.data;
+    },err => {
+      console.log(err);
+    })
+  }
 
   openModal() {
     const modal = document.getElementById('userModal');

@@ -27,6 +27,7 @@ import { PaymentFormComponent } from './admin/business/payment-form/payment-form
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { CardsComponent } from './admin/clients/cards/cards.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { CreateComponent as createUser } from './admin/business/users/create/create.component';
 
 export const routes: Routes = [
   
@@ -40,6 +41,7 @@ export const routes: Routes = [
 
     { path: 'business', component: DashboardAdmin, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/clients', component: UsersComponent, canActivate: [RoleGuard], data: { role: 'business' } },
+    { path: 'business/clients/create', component: createUser, canActivate: [RoleGuard], data: { role: 'business' } },
 
     { path: 'business/visits', component: VisitsComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/clients-stats', component: ClientStatsComponent, canActivate: [RoleGuard], data: { role: 'business' } },
