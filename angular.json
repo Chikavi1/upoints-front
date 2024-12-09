@@ -29,7 +29,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"],
+            "styles": ["src/styles.scss", "node_modules/flowbite/dist/flowbite.css"],
             "scripts": []
           },
           "configurations": {
