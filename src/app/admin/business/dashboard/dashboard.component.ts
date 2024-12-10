@@ -4,13 +4,14 @@ import { BrowserQRCodeReader, IScannerControls } from '@zxing/browser';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { RouterModule } from '@angular/router';
 
 
 registerLocaleData(localeEs, 'es');
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

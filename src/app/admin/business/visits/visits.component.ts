@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output } from '@angular/core';
-import { AlertComponent } from '../../../shared/alert/alert.component';
+import { Component } from '@angular/core';
+ import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-visits',
-  imports: [CommonModule, AlertComponent ],
+  imports: [CommonModule, RouterLink ],
   templateUrl: './visits.component.html',
   styleUrl: './visits.component.scss'
 })
