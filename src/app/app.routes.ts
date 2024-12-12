@@ -29,6 +29,7 @@ import { CardsComponent } from './admin/clients/cards/cards.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { CreateComponent as UsersCreate } from './admin/business/users/create/create.component';
 import { CreateComponent as VisitsCreate } from './admin/business/visits/create/create.component';
+import { CreateComponent as GiftsCreate} from './admin/business/gift-cards/create/create.component';
 
 export const routes: Routes = [
   
@@ -49,6 +50,8 @@ export const routes: Routes = [
     { path: 'business/clients-stats', component: ClientStatsComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/payment-form', component: PaymentFormComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/gift-cards', component: GiftCardsComponent, canActivate: [RoleGuard], data: { role: 'business' } },
+    { path: 'business/gift-cards/create', component: GiftsCreate, canActivate: [RoleGuard], data: { role: 'business' } },
+
     { path: 'business/billing', component: BillingComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/profile', component: ProfileComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/:id/edit', component: EditComponent, canActivate: [RoleGuard], data: { role: 'business' } },
