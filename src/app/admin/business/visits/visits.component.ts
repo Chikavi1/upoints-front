@@ -1,52 +1,40 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
- import { RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { CrudService } from '../../../services/crud.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-visits',
-  imports: [CommonModule, RouterLink ],
+  imports: [CommonModule, RouterLink, HttpClientModule],
+  providers: [CrudService],
   templateUrl: './visits.component.html',
   styleUrl: './visits.component.scss'
 })
-export class VisitsComponent {
+export class VisitsComponent implements OnInit {
+  visits: any[] = [];
+  totalItems: number = 0; // Total de elementos
+  currentPage: number = 1; // Página actual
+  itemsPerPage: number = 10; // Elementos por página
 
-  isModalVisible = false;
-  closeText: string = "Eliminar";
-  doneText: string = "done";
-  alertMessage: string = 'seguro?'
+  constructor(private crudService: CrudService) {}
 
-
-  toggleModal() {
-    this.isModalVisible = true;
+  ngOnInit() {
+    this.fetchVisits(this.currentPage);
   }
 
-  closeModal() {
-    this.isModalVisible = false;
+  fetchVisits(page: number) {
+    const caca = { page: page.toString(), limit: this.itemsPerPage.toString() };
+    this.crudService.get('visits', ).subscribe((response: any) => {
+      this.visits = response.data;
+      this.totalItems = response.pagination.totalItems;
+      this.currentPage = response.pagination.currentPage;
+    });
   }
 
-  isModalOpen = false;
-  modalMode: 'create' | 'edit' = 'create';
-  selectedData: any = {};
-
-  record: any = {
-    
-  }
-
-  openModal(mode: 'create' | 'edit', data: any = {}) {
-    this.isModalOpen = true;
-    this.modalMode = mode;
-    this.selectedData = data;
-  }
-
-  handleModalClose(event: any) {
-    this.isModalOpen = false;
-    console.log('Modal cerrado', event);
-  }
-
-  handleModalSave(data: any) {
-    this.isModalOpen = false;
-    console.log('Datos guardados:', data);
-    // Aquí podrías enviar los datos al backend o procesarlos.
+  // Cambiar de página
+  changePage(page: number) {
+    this.fetchVisits(page);
   }
 }

@@ -14,39 +14,26 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './users.component.html',
 })
 export class UsersComponent {
-  users: User[] =
-    [
-      {
-        id: 1,
-        name: 'Usuario 1',
-        email: 'Lb5Jw@example.com',
-        phone: '1234567890',
-        birthday: new Date('1990-01-01'),
-      },
-      {
-        id: 1,
-        name: 'Usuario 2',
-        email: 'Lb5Jw@example.com',
-        phone: '1234567890',
-        birthday: new Date('1990-01-01'),
-      }
-  ];
+  users: User[] = [];
 
   constructor(private api: CrudService){
     this.getUsers();
   }
 
   getUsers() {
-    console.log('users');
-
-    this.api.get('users').subscribe((data: any) => {
+  this.api.get('users').subscribe({
+    next: (data: any) => {
       console.log(data);
       this.users = data.data;
-    },err => {
+    },
+    error: (err) => {
       console.log(err);
-    })
-  }
-
+    },
+    complete: () => {
+      console.log('Request completed');
+    }
+  });
+}
   openModal() {
     const modal = document.getElementById('userModal');
     if (modal) modal.classList.remove('hidden');

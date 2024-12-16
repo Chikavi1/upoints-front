@@ -32,8 +32,10 @@ export class CreateComponent {
       icon: 'success',
       confirmButtonText: 'OK',
     }).then(() => {
-      // Redirigir al cliente después de confirmar
-      this.router.navigate(['admin/business/visits']);  // Aquí '/clientes' es el destino
+
+      
+
+       this.router.navigate(['admin/business/visits']);  // Aquí '/clientes' es el destino
     });
   }
 
@@ -53,9 +55,26 @@ export class CreateComponent {
     }
   }
 
-  createVisit(){
-    this.showSuccess();
+  createVisit() {
+    let data = {
+        date : new Date(),
+        userId: 1,
+        businessId: 1,
+        points: 1,
+        amount: 100
+      }
     
+    
+    console.log('data antes de enviar:',data)
+    
+    this.api.post('visits', data).subscribe((response: any) => {
+      console.log('respuesta: ',response);
+
+      if (response.status === 200) {
+        this.showSuccess();
+      }
+    });
+        
   }
  
 
@@ -65,13 +84,10 @@ export class CreateComponent {
   }
 
   search() {
-
-    console.log(this.query);
     this.api.get(`users/search?query=${this.query}`).subscribe((data: any) => {
       this.results = data;
       this.IsSearched = true;
-      console.log(data)
-    },err => {
+     },err => {
       console.log(err);
     })
   }
