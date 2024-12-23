@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,8 +10,18 @@ export class CrudService {
 
   constructor(private http: HttpClient) {}
 
-  get(endpoint: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}${endpoint}`);
+  get(endpoint: string, options?: { params?: any }) {
+    let httpParams = new HttpParams();
+
+    if (options?.params) {
+      Object.keys(options.params).forEach((key) => {
+        if (options.params[key] !== null && options.params[key] !== undefined) {
+          httpParams = httpParams.set(key, options.params[key]);
+        }
+      });
+    }
+
+    return this.http.get(`${this.baseUrl}${endpoint}`, { params: httpParams });
   }
 
   post(endpoint: string, data: any): Observable<any> {
