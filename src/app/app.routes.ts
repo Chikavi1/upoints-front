@@ -30,6 +30,8 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { CreateComponent as UsersCreate } from './admin/business/users/create/create.component';
 import { CreateComponent as VisitsCreate } from './admin/business/visits/create/create.component';
 import { CreateComponent as GiftsCreate} from './admin/business/gift-cards/create/create.component';
+import { RedeemComponent } from './admin/business/gift-cards/redeem/redeem.component';
+import { PublicComponent } from './admin/business/gift-cards/public/public.component';
 
 export const routes: Routes = [
   
@@ -51,7 +53,10 @@ export const routes: Routes = [
     { path: 'business/payment-form', component: PaymentFormComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/gift-cards', component: GiftCardsComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/gift-cards/create', component: GiftsCreate, canActivate: [RoleGuard], data: { role: 'business' } },
-
+    { path: 'business/gift-cards-redeem', component: RedeemComponent, canActivate: [RoleGuard], data: { role: 'business' } },
+    { path: 'business/public-gift-cards', component: PublicComponent, canActivate: [RoleGuard], data: { role: 'business' } },
+ 
+    
     { path: 'business/billing', component: BillingComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/profile', component: ProfileComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/:id/edit', component: EditComponent, canActivate: [RoleGuard], data: { role: 'business' } },

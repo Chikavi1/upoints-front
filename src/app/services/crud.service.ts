@@ -25,6 +25,7 @@ export class CrudService {
   }
 
   post(endpoint: string, data: any): Observable<any> {
+    console.log(`${this.baseUrl}${endpoint}`)
     return this.http.post<any>(`${this.baseUrl}${endpoint}`, data);
   }
 

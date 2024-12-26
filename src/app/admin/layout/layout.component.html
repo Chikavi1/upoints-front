@@ -28,11 +28,46 @@
                         </a>
                     </li>
 
+ 
+
                     <li>
-                        <a routerLink="/admin/business/visits" (click)="closeMenu()"
-                            class="block rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-white">
-                            Visitas
-                        </a>
+                        <details class="group [&_summary::-webkit-details-marker]:hidden">
+                            <summary
+                                class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 dark:hover:bg-gray-400 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-white">
+                                <span class="text-sm font-medium"> Visitas </span>
+                    
+                                <span class="shrink-0 transition duration-300 group-open:-rotate-180">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </summary>
+                    
+                            <ul class="mt-2 space-y-1 px-4">
+                                <li>
+                                    <a routerLink="/admin/business/visits" (click)="closeMenu()"
+                                        class="block rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-white">
+                                        Listado de visitas
+                                    </a>
+                                </li>
+                    
+                                <li>
+                                    <a routerLink="/admin/business/clients/create" (click)="closeMenu()"
+                                        class="block rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-white">
+                                        Crear visita
+                                    </a>
+                                </li>
+                    
+                                <li>
+                                    <a routerLink="/admin/business/clients-stats" (click)="closeMenu()"
+                                        class="block rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-white">
+                                        Estadisticas
+                                    </a>
+                                </li>
+                            </ul>
+                        </details>
                     </li>
     
                     <li>
@@ -75,21 +110,55 @@
                             </ul>
                         </details>
                     </li>
-    
-                    <li>
-                        <a routerLink="/admin/business/gift-cards" (click)="closeMenu()"
-                            class="block rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-white">
-                            Tarjetas de regalo
-                        </a>
-                    </li>
 
                     <li>
-                        <a routerLink="/admin/business/billing" (click)="closeMenu()"
-                            class="block rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-white">
-                            Facturación
-                        </a>
+                        <details class="group [&_summary::-webkit-details-marker]:hidden">
+                            <summary
+                                class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 dark:hover:bg-gray-400 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-white">
+                                <span class="text-sm font-medium"> Tarjetas de regalo </span>
+                    
+                                <span class="shrink-0 transition duration-300 group-open:-rotate-180">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </summary>
+                    
+                            <ul class="mt-2 space-y-1 px-4">
+                                <li>
+                                    <a routerLink="/admin/business/gift-cards" (click)="closeMenu()"
+                                        class="block rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-white">
+                                        Listado de tarjetas
+                                    </a>
+                                </li>
+                    
+                                <li>
+                                    <a routerLink="/admin/business/gift-cards/create" (click)="closeMenu()"
+                                        class="block rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-white">
+                                       Agregar tarjeta
+                                    </a>
+                                </li>
+                    
+                                <li>
+                                    <a routerLink="/admin/business/gift-cards-redeem" (click)="closeMenu()"
+                                        class="block rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-white">
+                                        Canjear tarjeta
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a routerLink="/admin/business/public-gift-cards" (click)="closeMenu()"
+                                        class="block rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-white">
+                                        Tarjetas de regalos Pública
+                                    </a>
+                                </li>
+                            </ul>
+                        </details>
                     </li>
     
+                 
     
                     <li>
                         <details class="group [&_summary::-webkit-details-marker]:hidden">
@@ -125,6 +194,13 @@
                               
                             </ul>
                         </details>
+                    </li>
+
+                    <li>
+                        <a routerLink="/admin/business/billing" (click)="closeMenu()"
+                            class="block rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-white">
+                            Facturación
+                        </a>
                     </li>
 
                     <li>

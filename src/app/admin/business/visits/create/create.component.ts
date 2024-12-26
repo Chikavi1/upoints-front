@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 export class CreateComponent {
   query: string = '';
   IsSearched: boolean = false;
-  results:any = [];
+  results: any = [];
 
   constructor(private api: CrudService,private router: Router) {}
 
@@ -64,8 +64,7 @@ export class CreateComponent {
         amount: 100
       }
     
-    
-    console.log('data antes de enviar:',data)
+ 
     
     this.api.post('visits', data).subscribe((response: any) => {
       console.log('respuesta: ',response);

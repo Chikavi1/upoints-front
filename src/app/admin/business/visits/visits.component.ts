@@ -39,7 +39,7 @@ export class VisitsComponent implements OnInit {
     this.router.navigate(['profile']);
   }
   
-  previoussarch() {
+  previoussearch() {
     this.fetchVisits(this.currentPage - 1);
   }
 
