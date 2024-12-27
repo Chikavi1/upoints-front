@@ -1,0 +1,64 @@
+
+<div class="">
+    <div class="grid grid-cols-12 gap-3">
+        <div class="col-span-12 md:col-span-6 md:pl-40 md:pt-12  p-4" >
+            <img class="h-20 w-20 rounded-lg"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcNNJDHlqAy0b4rk0FMoRqucl0l_HZaZmfWA&s" alt="">
+
+            <h2 class="text-3xl font-bold mt-4">Carls jr</h2>
+
+            <p class="text-gray-800  mt-2">Tarjeta de regalo de Carls jr</p>
+
+            <img class="md:hidden w-full mt-3"
+                src="https://qa-content-s3.launchgiftcards.com/images/51a44a86-2c42-11ec-8d3d-0242ac130003/Marc_Fireworks_Shadow_01.gif"
+                alt="">
+            <div class="mt-6">
+                    
+                <p class="text-gray-800 font-semibold">Elige un monto</p>
+            
+                <input
+                    class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent  dark:placeholder:text-gray-400"
+                    id="email"placeholder="Personaliza el monto" type="email" name="email" autocapitalize="none" autocomplete="email"
+                    autocorrect="off" required />
+
+                <p class="mt-4 ext-gray-800 font-semibold" >¿De parte de quien?</p>
+                <input
+                    class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent  dark:placeholder:text-gray-400"
+                    id="email" placeholder="Tu nombre" type="email" name="email" autocapitalize="none"
+                    autocomplete="email" autocorrect="off" required />
+
+
+                <p class="mt-4 ext-gray-800 font-semibold">¿Quien recibe?</p>
+                <input
+                    class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent  dark:placeholder:text-gray-400"
+                    id="email" placeholder="Correo electronico de la persona que recibe" type="email" name="email" autocapitalize="none" autocomplete="email"
+                    autocorrect="off" required />
+
+                <p class="mt-4 ext-gray-800 font-semibold">Mensaje personalizado</p>
+                <textarea class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent  dark:placeholder:text-gray-400" name="" id="" cols="40" rows="5" placeholder="Personaliza el mensaje"></textarea>
+
+                <p class="text-xs text-gray-600 mt-4 max-w-sm">
+                    La tarjeta no se puede recargar y, salvo que lo exija la ley, no puede canjearse por efectivo, reembolsar ni
+                    devolverse.
+                    El emisor no se hace responsable de las tarjetas perdidas, dañadas o robadas, ni del uso no autorizado de las
+                    mismas.
+                    Para consultar el saldo de la tarjeta, inicia sesión en tu cuenta de Airbnb. Emitido por Airbnb Ireland UC.
+                    Consulta
+                    términos y condiciones en https://airbnb.mx/mx_gift_cards_terms.
+                </p>
+                <button
+                    class="mt-6 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-black text-white text-primary-foreground hover:bg-primary/90 mt-2 flex h-[unset] w-full md:w-2/4 items-center justify-center rounded-lg px-4 py-4 text-sm font-medium"
+                    (click)="checkout()"
+                    >Agregar al carrito</button>
+            </div>
+        </div>
+
+        <div class="hidden   col-span-12 md:col-span-6 h-full w-full  md:flex items-center justify-center  ">
+            <img class="w-full md:w-2/4 mr-40"
+                src="https://qa-content-s3.launchgiftcards.com/images/51a44a86-2c42-11ec-8d3d-0242ac130003/Marc_Fireworks_Shadow_01.gif"
+                alt="">
+        </div>
+    </div>
+
+
+</div>

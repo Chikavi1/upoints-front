@@ -1,0 +1,115 @@
+
+<nav  class="dark:bg-gray-900">
+    <div class="dark:bg-gray-900 dark:text-white mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-50 flex justify-between py-8">
+        <div class="relative z-10 flex items-center gap-16">
+            <a aria-label="Home" href="/">
+                <h1>UPoints</h1>
+            </a>
+
+            <div class="hidden lg:flex lg:gap-10">
+                <a class="relative -mx-3 -my-2 rounded-lg px-3 py-2 text-sm dark:text-white text-gray-700 transition-colors delay-150 hover:text-gray-900 hover:delay-0"
+                    href="/#features">
+                    <span class="relative z-10">
+                        Funcionalidades
+                    </span>
+                </a>
+                <a class="relative -mx-3 -my-2 rounded-lg px-3 py-2 text-sm dark:text-white text-gray-700 transition-colors delay-150 hover:text-gray-900 hover:delay-0"
+                    href="/#reviews">
+                    <span class="relative z-10">Reseña</span>
+                </a>
+                <a class="relative -mx-3 -my-2 rounded-lg px-3 py-2 text-sm dark:text-white text-gray-700 transition-colors delay-150 hover:text-gray-900 hover:delay-0"
+                    href="/#pricing">
+                    <span class="relative z-10">Precios</span>
+                </a>
+                <a class="relative -mx-3 -my-2 rounded-lg px-3 py-2 text-sm dark:text-white text-gray-700 transition-colors delay-150 hover:text-gray-900 hover:delay-0"
+                    href="/#faqs">
+
+                    <span class="relative z-10">FAQs</span></a>
+            </div>
+        </div>
+        <div class="flex items-center gap-6">
+
+
+            <div hidden=""
+                style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none">
+
+            </div>
+            <a class=" justify-center rounded-lg border py-[calc(theme(spacing.2)-1px)] px-[calc(theme(spacing.3)-1px)] text-sm transition-colors border-gray-300 dark:text-white text-gray-700 hover:border-gray-400 active:bg-gray-100 active:text-gray-700/80 hidden lg:block"
+                variant="outline" color="gray" href="/register">Registrarme</a>
+            <a class=" justify-center rounded-lg py-2 px-3 text-sm font-semibold transition-colors bg-gray-800 text-white hover:bg-gray-900 active:bg-gray-800 active:text-white/80 hidden lg:block"
+                variant="solid" color="gray" href="/login">Ingresar</a>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="p-6 dark:text-white dark:bg-gray-800  ">
+    <img class="w-full md:w-1/4 mx-auto" src="https://a0.muscache.com/im/pictures/canvas/Canvas-1711407977510/original/0a5aa85a-9ccb-4798-8b0d-be514b25adbf.jpeg?im_w=1440&im_format=avif" alt="">
+    
+    <div class="mx-auto max-w-screen-sm px-4 2xl:px-0 text-center dark:text-white">
+        <h2 class="font-bold text-3xl">Comparte momentos especiales</h2>
+        <p class="mt-2 text-md">Comparte el mundo de Airbnb con tu familia y amistades. Festeja las fechas especiales y los momentos importantes con tu
+        familia y amistades abriéndoles las puertas a un mundo de viajes. Ayúdalos a ir a donde sea, cuando sea, ya que nunca
+        vencen.
+
+    </p>
+</div>
+    
+    <h2 class="text-3xl font-semibold   text-gray-900 dark:text-white text-center my-20">Elige uno de nuestros clientes</h2>
+   
+    <div class="grid grid-cols-12 gap-4 px-6">
+        <div class="col-span-12 md:col-span-4 " *ngFor="let i of [1,2,3,4,5,6]" routerLink="/gift-cards/carls-jr"   >
+            <div
+                class="w-full p-4 bg-white shadow-xl hover:bg-gray-100 rounded-2xl dark:bg-gray-700 dark:hover:bg-gray-600">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center">
+                        <span class="relative p-2 rounded-xl">
+                            <img width="50" height="50" class="rounded-md"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcNNJDHlqAy0b4rk0FMoRqucl0l_HZaZmfWA&s"
+                                alt="">
+                        </span>
+                        <div class="flex flex-col">
+                            <span class="ml-2 font-bold text-black text-md dark:text-white">
+                                Carl's JR
+                            </span>
+                            <p target="_blank"
+                                class="font-bold ml-2 text-sm text-blue-500 dark:text-white">
+                                Junior Foods, SA de CV
+                        </p>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="flex items-center justify-between mb-4 space-x-12">
+    
+                    <span
+                        class="flex text-green-400 items-center px-2 py-1 text-xs font-semibold bg-white border border-green-400 rounded-md">
+                        Destacado
+                    </span>
+                </div>
+    
+                <p>
+                    10% de descuento en consumo general
+                    o aplica con otras promociones. Las sucursales participantes son: CARL'S JR. Cordilleras, CARL'S
+                    JR.Sanzio,
+                    CARL'S JR. Real Center, CARL'S JR. Urban Center, CARL'S JR.Río Nilo, CARL'S JR. Circunvalación, CARL'S
+                    JR. Sao
+                    Paulo, CARL'S JR. Oblatos,
+                </p>
+    
+                <div class="flex items-center justify-start my-4 space-x-4">
+                    <span class="flex items-center px-2 py-1 text-xs font-semibold text-green-500 rounded-md bg-green-50">
+                        Comida
+                    </span>
+    
+                </div>
+    
+    
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-3xl font-semibold  text-underline text-gray-900 dark:text-white text-center my-20">Ver mas clientes</h2>
+    
+</div>

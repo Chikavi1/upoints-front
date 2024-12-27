@@ -32,6 +32,10 @@ import { CreateComponent as VisitsCreate } from './admin/business/visits/create/
 import { CreateComponent as GiftsCreate} from './admin/business/gift-cards/create/create.component';
 import { RedeemComponent } from './admin/business/gift-cards/redeem/redeem.component';
 import { PublicComponent } from './admin/business/gift-cards/public/public.component';
+import { CreatePublicComponent } from './admin/business/gift-cards/create-public/create-public.component';
+import { IndexComponent } from './admin/business/gift-cards/index/index.component';
+import { ShowComponent } from './admin/business/gift-cards/show/show.component';
+import { CheckoutComponent } from './public/checkout/checkout.component';
 
 export const routes: Routes = [
   
@@ -55,20 +59,24 @@ export const routes: Routes = [
     { path: 'business/gift-cards/create', component: GiftsCreate, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/gift-cards-redeem', component: RedeemComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/public-gift-cards', component: PublicComponent, canActivate: [RoleGuard], data: { role: 'business' } },
- 
-    
+    { path: 'business/public-gift-cards/create', component: CreatePublicComponent, canActivate: [RoleGuard], data: { role: 'business' } },
+
     { path: 'business/billing', component: BillingComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/profile', component: ProfileComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/:id/edit', component: EditComponent, canActivate: [RoleGuard], data: { role: 'business' } },
     { path: 'business/configuration', component: ConfigurationComponent, canActivate: [RoleGuard], data: { role: 'business' } },
- 
+    
     { path: 'clients/cards', component: CardsComponent, canActivate: [RoleGuard], data: { role: 'business' } }, //cambiar
-
+    
     // { path: 'business/users', component: UsersComponent, canActivate: [RoleGuard], data: { role: 'admin' } }
   ]
 },
 
-  
+
+  { path: 'gift-cards', component: IndexComponent },
+  { path: 'gift-cards/:slug', component: ShowComponent },
+  { path: 'checkout', component: CheckoutComponent },
+      
   { path: '', redirectTo: '/landing-client', pathMatch: 'full' },
   { path: 'landing-client', component: LandingClientComponent },
   { path: 'landing-business', component: LandingBusinessComponent },
