@@ -18,20 +18,21 @@
             
                 <input
                     class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent  dark:placeholder:text-gray-400"
-                    id="email"placeholder="Personaliza el monto" type="email" name="email" autocapitalize="none" autocomplete="email"
+                    id="email"placeholder="Personaliza el monto" type="text"  
+                    (keypress)="allowOnlyNumbers($event)"
                     autocorrect="off" required />
 
                 <p class="mt-4 ext-gray-800 font-semibold" >¿De parte de quien?</p>
                 <input
                     class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent  dark:placeholder:text-gray-400"
-                    id="email" placeholder="Tu nombre" type="email" name="email" autocapitalize="none"
+                    id="email" placeholder="Tu nombre" type="email" name="email" autocapitalize="on"
                     autocomplete="email" autocorrect="off" required />
 
 
                 <p class="mt-4 ext-gray-800 font-semibold">¿Quien recibe?</p>
                 <input
                     class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent  dark:placeholder:text-gray-400"
-                    id="email" placeholder="Correo electronico de la persona que recibe" type="email" name="email" autocapitalize="none" autocomplete="email"
+                    id="email" placeholder="Correo electronico de la persona que recibe" type="text"   
                     autocorrect="off" required />
 
                 <p class="mt-4 ext-gray-800 font-semibold">Mensaje personalizado</p>
@@ -42,7 +43,7 @@
                     devolverse.
                     El emisor no se hace responsable de las tarjetas perdidas, dañadas o robadas, ni del uso no autorizado de las
                     mismas.
-                    Para consultar el saldo de la tarjeta, inicia sesión en tu cuenta de Airbnb. Emitido por Airbnb Ireland UC.
+                    Para consultar el saldo de la tarjeta, inicia sesión en tu cuenta de uPoints. Emitido por uPoints Ireland UC.
                     Consulta
                     términos y condiciones en https://airbnb.mx/mx_gift_cards_terms.
                 </p>
