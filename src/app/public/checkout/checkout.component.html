@@ -1,36 +1,40 @@
-<section class="bg-white dark:bg-gray-900 py-8 antialiased  md:py-16 h-screen">
+<section class="bg-white dark:bg-gray-900 py-8 antialiased  md:py-16  md:h-screen">
     <div class="mx-auto max-w-screen-xl  px-4 2xl:px-0">
         <div class="mx-auto max-w-5xl">
             <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl pt-20">Confirmar y pagar</h2>
 
             <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12">
-                <div  
+                <form *ngIf="carts.length > 0" [formGroup]="checkoutForm" (ngSubmit)="processPayment()" 
                     class="w-full rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:max-w-xl lg:p-8">
                     
                     
                     <div class="mb-6 grid grid-cols-2 gap-4">
-                        <div class="col-span-2 ">
-                            <label for="full_name" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                        <div class="col-span-1">
+                            <label for="email" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
                                 Correo electrónico</label>
-                            <input type="text" id="full_name"
+                            <input type="text" id="email"
+                                formControlName="email"
                                 class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                                 placeholder="Mi correo electronico" required />
                         </div>
 
 
-                        <div class="col-span-2 sm:col-span-1">
+                        <div class="col-span-1 sm:col-span-1">
                             <label for="full_name" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
                                Nombre del titular </label>
-                            <input type="text" id="full_name"
+                            <input 
+                                formControlName="full_name"
+                                type="text"  
                                 class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                                 placeholder="Luis Rojas" required />
                         </div>
 
-                        <div class="col-span-2 sm:col-span-1">
+                        <!-- <div class="col-span-2 sm:col-span-1">
                             <label for="card-number-input"
                                 class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"> Número de tarjeta
                             </label>
                             <input type="text" id="card-number-input"
+                                formControlName="card"
                                 class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pe-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                                 placeholder="xxxx-xxxx-xxxx-xxxx" pattern="^4[0-9]{12}(?:[0-9]{3})?$" required />
                         </div>
@@ -49,11 +53,14 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <input datepicker datepicker-format="mm/yy" id="card-expiration-input" type="text"
+                                <input 
+                                    formControlName="expiration"
+                                    datepicker datepicker-format="mm/yy" id="card-expiration-input" type="text"
                                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-9 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                     placeholder="12/23" required />
                             </div>
                         </div>
+
                         <div>
                             <label for="cvv-input"
                                 class="mb-2 flex items-center gap-1 text-sm font-medium text-gray-900 dark:text-white">
@@ -73,46 +80,68 @@
                                     <div class="tooltip-arrow" data-popper-arrow></div>
                                 </div>
                             </label>
-                            <input type="number" id="cvv-input" aria-describedby="helper-text-explanation"
+                            <input
+                                formControlName="cvv"                           
+                                type="number" id="cvv-input" aria-describedby="helper-text-explanation"
                                 class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                                 placeholder="•••" required />
-                        </div>
+                        </div> -->
+
                     </div>
+                    <h2 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Información de la tarjeta</h2>
+                    <div id="card-element"><!-- Stripe inserta el campo aquí --></div>
 
                     <button 
-                        (click)="pay()"
-                        class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-dark hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-white dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                        Pagar ahora &bull; $299.00
+                    type="submit"
+                    *ngIf="carts.length > 0"
+                    [disabled]="pending"
+                        class="mt-6 flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-dark hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-white dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                        <span *ngIf="!pending">
+                            Pagar ahora &bull; ${{total}}.00
+                        </span>
+                        <span *ngIf="pending">
+                           Procesando pago ... 
+                        </span>
+
                     </button>
-                </div>
+                </form>
 
-                <div class="mt-6 grow sm:mt-8 lg:mt-0">
+                <div class="mt-6 grow sm:mt-8 lg:mt-0 ">
                     <div
-                        class="space-y-4 rounded-lg border border-gray-100 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
-                        <div class="space-y-2">
-                            <dl class="flex items-center justify-between gap-4">
-                                <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Correo a entregar</dt>
-                                <dd class="text-base font-medium text-gray-900 dark:text-white">chikavi10gmail.com</dd>
-                            </dl>
+                        class="space-y-4 rounded-lg border border-gray-100   p-6 dark:border-gray-700 dark:bg-gray-800 max-h-96 scrollbar-thumb-blue-500 scrollbar-track-gray-300 overflow-y-auto">
+                       <div 
+                       *ngFor="let cart of carts">
+                           <img class="mt-12" [src]="cart.image" alt="">
+                           <div class="space-y-2">
+                               <dl class="flex items-center justify-between gap-4 mt-4">
+                                   <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Correo a entregar</dt>
+                                   <dd class="text-base font-medium text-gray-900 dark:text-white">{{cart.email}}</dd>
+                               </dl>
+   
+                               <dl class="flex items-center justify-between gap-4">
+                                   <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Monto</dt>
+                                   <dd class="text-base font-medium text-green-500">${{ cart.amount }}.00 </dd>
+                               </dl>
+   
+                               <dl class="flex items-center justify-between gap-4">
+                                   <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Fecha de entrega</dt>
+                                   <dd class="text-base font-medium text-gray-900 dark:text-white">10/11/2023</dd>
+                               </dl>
+   
+                              
+                           </div>
+   
+                           <dl
+                               class="flex items-center justify-between gap-4 pt-2 dark:border-gray-700">
+                               <dt class="text-base font-bold text-gray-900 dark:text-white"></dt>
+                               <dd class="text-base font-bold text-gray-900   text-red-800" (click)="removeFromCart(cart.id)">Eliminar</dd>
+                           </dl>
+                       </div>
 
-                            <dl class="flex items-center justify-between gap-4">
-                                <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Monto</dt>
-                                <dd class="text-base font-medium text-green-500">$299.00</dd>
-                            </dl>
-
-                            <dl class="flex items-center justify-between gap-4">
-                                <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Fecha de entrega</dt>
-                                <dd class="text-base font-medium text-gray-900 dark:text-white">10/11/2023</dd>
-                            </dl>
-
-                           
-                        </div>
-
-                        <dl
-                            class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
-                            <dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
-                            <dd class="text-base font-bold text-gray-900 dark:text-white">$299.00</dd>
-                        </dl>
+                       <div *ngIf="carts.length == 0"  class="pt-20 pb-20 ">
+                        <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl text-center">No hay elementos en el carrito</h2>
+                        <p class="text-sm mt-4   text-gray-900 dark:text-white  text-center">Agrega elementos a tu carrito para poder pagar</p>
+                       </div>
                     </div>
 
                     <div class="mt-6 flex items-center justify-center gap-8">
@@ -136,7 +165,7 @@
                 </div>
             </div>
 
-            <p class="mt-6 text-center text-gray-500 dark:text-gray-400 sm:mt-8 lg:text-left">
+            <p class="mt-6  text-center text-gray-500 dark:text-gray-400 sm:mt-8 lg:text-left">
                 Pago procesado por <a href="www.stripe.com" title=""
                     class="font-medium text-primary-700 underline hover:no-underline dark:text-primary-500">Stripe</a>
                 para <a href="#" title=""
@@ -144,6 +173,9 @@
                     S:A de C.V</a>
                 - México
             </p>
+            
+            <p class="mt-6 text-center text-gray-500 dark:text-gray-400 sm:mt-8 lg:text-left"><i class="fa-solid fa-arrow-left"></i> &nbsp; Agrega otra tarjeta de regalo</p>
+
         </div>
     </div>
 </section>

@@ -1,65 +1,90 @@
 
-<div class="">
-    <div class="grid grid-cols-12 gap-3">
-        <div class="col-span-12 md:col-span-6 md:pl-40 md:pt-12  p-4" >
-            <img class="h-20 w-20 rounded-lg"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcNNJDHlqAy0b4rk0FMoRqucl0l_HZaZmfWA&s" alt="">
+<div class="grid grid-cols-12 gap-3">
 
-            <h2 class="text-3xl font-bold mt-4">Carls jr</h2>
-
-            <p class="text-gray-800  mt-2">Tarjeta de regalo de Carls jr</p>
-
-            <img class="md:hidden w-full mt-3"
-                src="https://qa-content-s3.launchgiftcards.com/images/51a44a86-2c42-11ec-8d3d-0242ac130003/Marc_Fireworks_Shadow_01.gif"
-                alt="">
-            <div class="mt-6">
-                    
-                <p class="text-gray-800 font-semibold">Elige un monto</p>
-            
-                <input
-                    class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent  dark:placeholder:text-gray-400"
-                    id="email"placeholder="Personaliza el monto" type="text"  
-                    (keypress)="allowOnlyNumbers($event)"
-                    autocorrect="off" required />
-
-                <p class="mt-4 ext-gray-800 font-semibold" >¿De parte de quien?</p>
-                <input
-                    class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent  dark:placeholder:text-gray-400"
-                    id="email" placeholder="Tu nombre" type="email" name="email" autocapitalize="on"
-                    autocomplete="email" autocorrect="off" required />
-
-
-                <p class="mt-4 ext-gray-800 font-semibold">¿Quien recibe?</p>
-                <input
-                    class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent  dark:placeholder:text-gray-400"
-                    id="email" placeholder="Correo electronico de la persona que recibe" type="text"   
-                    autocorrect="off" required />
-
-                <p class="mt-4 ext-gray-800 font-semibold">Mensaje personalizado</p>
-                <textarea class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent  dark:placeholder:text-gray-400" name="" id="" cols="40" rows="5" placeholder="Personaliza el mensaje"></textarea>
-
-                <p class="text-xs text-gray-600 mt-4 max-w-sm">
-                    La tarjeta no se puede recargar y, salvo que lo exija la ley, no puede canjearse por efectivo, reembolsar ni
-                    devolverse.
-                    El emisor no se hace responsable de las tarjetas perdidas, dañadas o robadas, ni del uso no autorizado de las
-                    mismas.
-                    Para consultar el saldo de la tarjeta, inicia sesión en tu cuenta de uPoints. Emitido por uPoints Ireland UC.
-                    Consulta
-                    términos y condiciones en https://airbnb.mx/mx_gift_cards_terms.
-                </p>
-                <button
-                    class="mt-6 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-black text-white text-primary-foreground hover:bg-primary/90 mt-2 flex h-[unset] w-full md:w-2/4 items-center justify-center rounded-lg px-4 py-4 text-sm font-medium"
-                    (click)="checkout()"
-                    >Agregar al carrito</button>
-            </div>
-        </div>
-
-        <div class="hidden   col-span-12 md:col-span-6 h-full w-full  md:flex items-center justify-center  ">
-            <img class="w-full md:w-2/4 mr-40"
-                src="https://qa-content-s3.launchgiftcards.com/images/51a44a86-2c42-11ec-8d3d-0242ac130003/Marc_Fireworks_Shadow_01.gif"
-                alt="">
-        </div>
+    <div class="col-span-12">
+        <h2 class="text-lg font-bold mt-8 text-gray-900 text-right mr-16">
+            <a href="checkout">
+                <i class="fa-solid fa-cart-shopping"></i> &nbsp;  Carrito
+            </a>
+        </h2>
     </div>
 
+    <form [formGroup]="giftCardForm" (ngSubmit)="checkout()" class="col-span-12 md:col-span-6 md:pl-40 md:pt-12 p-4">
+        <img class="h-20 w-20 rounded-lg"
+            [src]="business.image" alt="">
+        <h2 class="text-3xl font-bold mt-4">{{business.name}}</h2>
+        <p class="text-gray-800 mt-2">Tarjeta de regalo de {{business.name}}</p>
 
+        <img class="md:hidden w-full mt-3"
+            src="https://qa-content-s3.launchgiftcards.com/images/51a44a86-2c42-11ec-8d3d-0242ac130003/Marc_Fireworks_Shadow_01.gif"
+            alt="">
+
+        <div class="mt-6">
+            <p class="text-gray-800 font-semibold">Elige un monto</p>
+            <input
+                class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent dark:placeholder:text-gray-400"
+                placeholder="Personaliza el monto" type="text" 
+                formControlName="amount"
+                (keypress)="allowOnlyNumbers($event)" autocorrect="off" required />
+
+            <p class="mt-4 text-gray-800 font-semibold">¿De parte de quien?</p>
+            <input formControlName="from"
+                class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent dark:placeholder:text-gray-400"
+                placeholder="Tu nombre" type="text" autocapitalize="on" autocomplete="email" autocorrect="off"
+                required />
+
+            <p class="mt-4 text-gray-800 font-semibold">¿Quien recibe?</p>
+            <input formControlName="to"
+                class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent dark:placeholder:text-gray-400"
+                id="email" placeholder="Correo electronico de la persona que recibe" type="email" required autocorrect="off"
+                required />
+
+                <div *ngIf="giftCardForm.get('email')?.invalid && giftCardForm.get('email')?.touched">
+                    <span *ngIf="giftCardForm.get('email')?.errors?.['required']">El correo es obligatorio.</span>
+                    <span *ngIf="giftCardForm.get('email')?.errors?.['email']">El correo no es válido.</span>
+                </div>
+                
+
+            <p class="mt-4 text-gray-800 font-semibold">Mensaje personalizado</p>
+            <textarea
+                class="mt-2 mr-2.5 mb-2 h-full min-h-[44px] w-full md:w-2/4 rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent dark:placeholder:text-gray-400"
+                formControlName="message" placeholder="Personaliza el mensaje"></textarea>
+
+            <div class="col-span-12 mt-4">
+                <input id="scheduledEmail" type="checkbox" formControlName="scheduledEmail"
+                    class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="scheduledEmail" class="ml-2 text-sm font-medium text-gray-700 text-gray-200">Programar
+                    envio</label>
+            </div>
+
+            <p class="text-xs text-gray-600 mt-4 max-w-sm">
+                La tarjeta no es recargable ni reembolsable, excepto cuando lo requiera la ley. No puede canjearse por
+                efectivo ni devolverse.
+                El emisor no se responsabiliza por pérdida, daño, robo o uso no autorizado. Consulta tu saldo iniciando
+                sesión en tu cuenta de uPoints.Términos y condiciones en https://upoints.mx/mx_gift_cards_terms.
+            </p>
+
+            <button
+                class="mt-6 whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-black text-white text-primary-foreground hover:bg-primary/90 mt-2 flex h-[unset] w-full md:w-2/4 items-center justify-center rounded-lg px-4 py-4 text-sm font-medium"
+                type="submit" >
+                <i class="fa-solid fa-cart-shopping"></i> &nbsp; Agregar al carrito
+            </button>
+        </div>
+    </form>
+
+    <div class="hidden col-span-12 md:col-span-6 h-full w-full md:flex flex-col items-center justify-center">
+       
+        <img [src]="images[currentImageIndex]"
+            class="w-full md:w-2/4 rounded-lg transition-all duration-300 ease-in-out" alt="Image Carousel">
+        <div class="flex space-x-4 mt-4">
+            <button (click)="prevImage()"
+                class="bg-black text-white w-12 h-12 p-3 rounded-full shadow-lg hover:bg-gray-600 hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button (click)="nextImage()"
+                class="bg-black text-white w-12 h-12 p-3 rounded-full shadow-lg hover:bg-gray-600 hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
 </div>

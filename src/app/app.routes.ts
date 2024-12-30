@@ -36,6 +36,7 @@ import { CreatePublicComponent } from './admin/business/gift-cards/create-public
 import { IndexComponent } from './admin/business/gift-cards/index/index.component';
 import { ShowComponent } from './admin/business/gift-cards/show/show.component';
 import { CheckoutComponent } from './public/checkout/checkout.component';
+import { PaymentStatusComponent } from './public/payment-status/payment-status.component';
 
 export const routes: Routes = [
   
@@ -76,6 +77,8 @@ export const routes: Routes = [
   { path: 'gift-cards', component: IndexComponent },
   { path: 'gift-cards/:slug', component: ShowComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'payment-status', component: PaymentStatusComponent },
+
       
   { path: '', redirectTo: '/landing-client', pathMatch: 'full' },
   { path: 'landing-client', component: LandingClientComponent },
