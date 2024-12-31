@@ -78,8 +78,9 @@
                             Fecha de nacimiento
                         </label>
 
-                        <input type="text" id="birthday" formControlName="birthday" type="date"
-                            class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                    <input type="text" id="birthday" formControlName="birthday" placeholder="dd/mm/yyyy" maxlength="10"
+                        class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                        (input)="formatDateInput($event)" />
                     </div>
 
                     <div class="col-span-3">
@@ -100,9 +101,10 @@
 
 
                     <div class="col-span-6">
-                        <label for="phone" class="block text-sm font-medium text-gray-700">Celular </label>
+                        <label for="phone"  class="block text-sm font-medium text-gray-700">Celular </label>
 
-                        <input type="tel" id="phone" formControlName="phone"
+                        <input type="text" maxlength="10" id="phone" formControlName="phone"
+                          (input)="allowOnlyNumbers($event)"
                             class="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
                     </div>
 

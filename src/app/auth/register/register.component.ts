@@ -31,27 +31,68 @@ export class RegisterComponent {
   }
 
   onSubmit() {
-    console.log(this.register.value)
+  // Obtener los valores del formulario
+  const formData = { ...this.register.value };
 
-    if (this.register.valid) {
-      console.log('Form data:', this.register.value);
-
-      this._api.post('users', this.register.value).subscribe(data => {
-        console.log(data);
-        
-      })
-
-    } else {
-      const invalidControls = this.findInvalidControls();
-      alert(`Los siguientes campos son inválidos: ${invalidControls.join(', ')}`);
-    }
+  // Convertir la fecha del formato 'dd/mm/yyyy' a 'yyyy-mm-dd'
+  if (formData.birthday) {
+    const [day, month, year] = formData.birthday.split('/');
+    formData.birthday = `${year}-${month}-${day}`;
   }
+
+  console.log('Form data:', formData);
+
+  // Validar el formulario
+  if (this.register.valid) {
+    this._api.post('users', formData).subscribe(
+      data => {
+        console.log('Respuesta del servidor:', data);
+      },
+      error => {
+        console.error('Error al enviar:', error);
+      }
+    );
+  } else {
+    const invalidControls = this.findInvalidControls();
+    alert(`Los siguientes campos son inválidos: ${invalidControls.join(', ')}`);
+  }
+}
+
 
   setUser(){
     localStorage.setItem('auth','true');
     this.router.navigate(['/admin']);
 
   }
+
+   formatDateInput(event: Event): void {
+  const input = event.target as HTMLInputElement;
+  let value = input.value;
+
+  // Eliminar cualquier carácter que no sea número
+  value = value.replace(/\D/g, '');
+
+  // Formatear la fecha automáticamente a dd/mm/yyyy
+  if (value.length > 2 && value.length <= 4) {
+    value = `${value.slice(0, 2)}/${value.slice(2)}`;
+  } else if (value.length > 4) {
+    value = `${value.slice(0, 2)}/${value.slice(2, 4)}/${value.slice(4, 8)}`;
+  }
+
+  // Limitar la longitud máxima
+  if (value.length > 10) {
+    value = value.slice(0, 10);
+  }
+
+  input.value = value;
+}
+
+  
+allowOnlyNumbers(event: Event): void {
+  const input = event.target as HTMLInputElement;
+  input.value = input.value.replace(/\D/g, '');
+}
+  
   
   // Método para encontrar los controles inválidos
   findInvalidControls(): string[] {
