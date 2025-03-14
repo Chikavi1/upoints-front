@@ -15,16 +15,18 @@
                     
                 <div>
                     
-                <form (ngSubmit)="login($event)" class="mb-4 mt-12">
+                <form [formGroup]="register" (ngSubmit)="login()" class="mb-4 mt-12">
                     <div class="grid gap-2">
                         <div class="grid gap-1">
                             <label class="text-gray-900" for="email">Correo electrónico</label>
                             <input
                                 class="mr-2.5 mb-2 h-full min-h-[44px] w-full rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent  dark:placeholder:text-gray-400"
+                                 formControlName="email"
                                 id="email" placeholder="Nombre@ejemplo.com" type="email" name="email" autocapitalize="none"
                                 autocomplete="email" autocorrect="off" required />
                             <label class="text-gray-900 mt-2" for="password">Contraseña</label>
                             <input id="password" placeholder="Contraseña" type="password" name="password"
+                                formControlName="password"
                                 class="mr-2.5 mb-2 h-full min-h-[44px] w-full rounded-lg border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-0 dark:border-zinc-800 dark:bg-transparent  dark:placeholder:text-gray-400"
                                 autocomplete="current-password" required />
                         </div>

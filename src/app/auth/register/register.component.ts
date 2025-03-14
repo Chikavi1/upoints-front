@@ -46,6 +46,7 @@ export class RegisterComponent {
   if (this.register.valid) {
     this._api.post('users', formData).subscribe(
       data => {
+        
         console.log('Respuesta del servidor:', data);
       },
       error => {

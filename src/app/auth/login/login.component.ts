@@ -1,33 +1,32 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
-    imports: [ FormsModule],
+  imports: [ReactiveFormsModule,HttpClientModule],
+  providers: [AuthService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
 
-  constructor(private authService: AuthService, private router: Router) {}
+  register: any;
+  
+  constructor(private authService: AuthService, private fb: FormBuilder,private router: Router) {
+     this.register = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+     });
+  }
 
 
-  login(event: Event) {
-    event.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
-
-    const user = { username: 'user1', role: 'business', token: 'abc123' };
-    localStorage.setItem('user', JSON.stringify(user));
-    localStorage.setItem('authToken', user.token);
-
-    const userRole = this.authService.getUserRole();
-    console.log(userRole)
-    if (userRole === 'business') {
-        this.router.navigate(['/admin/business']);
-    } else if (userRole === 'cliente') {
-        this.router.navigate(['/clients/dashboard']);
-    }
-}
+   login() {
+    this.authService.login(this.register.value).subscribe((response: any) => {
+      this.authService.saveToken(response.access_token);
+    });
+  }
 
 }
